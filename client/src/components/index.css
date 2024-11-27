@@ -1,0 +1,90 @@
+/* General reset for consistent styling */
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Styling the container */ 
+  
+  div { 
+    max-width: 400px; /* Limit the width of the form */
+    margin: 1rem auto; /* Center the form vertically and horizontally */
+    padding: 1rem; /* Add spacing inside the container */
+    border: 1px solid #ddd; /* Add a light border */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #f9f9f9; /* Subtle background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  }
+  
+  /* Heading style */
+  
+  
+  /* Error message styling */
+  
+  
+  /* Form field styles */
+  
+  
+  /* Label styling */
+  label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #555;
+  }
+  
+  /* Input field styling */
+  input {
+    width: 100%; /* Full width of the container */
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus {
+    border-color:#555; /* Green border when focused */
+  }
+  
+  /* Button styling */
+  button {
+    background-color: #4caf50; /* Green background */
+    color: white; /* White text */
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+  button:disabled {
+    background-color: #ccc; /* Gray background when disabled */
+    cursor: not-allowed;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 600px) {
+    div {
+      padding: 1.5rem; /* Adjust padding for smaller devices */
+    }
+  
+    h2 {
+      font-size: 1.5rem; /* Smaller heading for small screens */
+    }
+  
+    input,
+    button {
+      font-size: 0.9rem; /* Adjust font size */
+    }
+  }
+  

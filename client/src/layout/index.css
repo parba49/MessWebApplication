@@ -1,0 +1,55 @@
+/* Reset for consistent styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Styling for the navigation bar */
+nav {
+  background-color:cornflowerblue; /* Background color for the navbar */
+  display: flex;
+  justify-content: center; /* Center-align the links */
+  align-items: center; /* Vertically align items */
+  padding: 1rem 2rem; /* Add spacing around the links */
+  position:static; /* Keep navbar fixed when scrolling */
+  top: 0; /* Stick to the top */
+  z-index: 500; /* Ensure it stays on top of other elements */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+/* Styling the links */
+nav a {
+  color:black; /* White text color */
+  text-decoration: none; /* Remove underline */
+  font-size: 1rem; /* Font size for better readability */
+  font-weight: bold; /* Bold text for emphasis */
+  margin: 0 1rem; /* Space between links */
+  padding: 0.5rem 1rem; /* Add clickable area */
+  border-radius: 5px; /* Smooth rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for links */
+nav a:hover {
+  background-color:aliceblue; /* Darker green on hover */
+  color:black; /* Lighter text color on hover */
+}
+
+/* Active link styling */
+nav a.active {
+  background-color: #3e8e41; /* Highlight the active page */
+  color: #f5f5f5; /* Slightly lighter color for active */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column; /* Stack links vertically */
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+
+  nav a {
+    margin: 0.5rem 0; /* Add vertical space between links */
+  }
+}

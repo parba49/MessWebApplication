@@ -1,0 +1,11 @@
+#root {
+  max-width: 1500px; /* Limit the width of the content */
+  margin: 0 auto; /* Center align horizontally */
+  padding: 0; /* Remove padding */
+  text-align: center; /* Center text content */
+  background-image: url('pexels-goumbik-628281.jpg'); /* Set the background image */
+  background-size: cover; /* Ensure the image covers the entire container */
+  background-position: center; /* Center the image */
+  background-attachment: fixed; /* Make the image fixed while scrolling */
+  min-height: 100vh; /* Ensure it covers the full viewport height */
+}

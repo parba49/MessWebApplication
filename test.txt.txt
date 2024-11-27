@@ -1,0 +1,3 @@
+////register--->form username--->password,register button 
+login-> form username ,password ,login button 
+successfully hole profile namok page e login korabo . 
