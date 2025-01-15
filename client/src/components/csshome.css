@@ -44,3 +44,53 @@
    
   }
   
+  .home-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .home-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  
+  .home-description {
+    font-size: 1.2rem;
+    color: #34495e;
+    margin-bottom: 20px;
+  }
+  
+  .home-message {
+    margin: 20px auto;
+    padding: 15px;
+    font-size: 1.1rem;
+    color: #ffffff;
+    background-color: #3498db; /* Blue background for the message */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .features {
+    margin-top: 30px;
+  }
+  
+  .features h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+  }
+  
+  .features ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .features li {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin: 5px 0;
+  }

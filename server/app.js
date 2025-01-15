@@ -6,7 +6,8 @@ const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const passport = require("passport");
 
-const User = require("./models/user.model");
+const User = require("./models/user.model"); 
+const Data = require("./models/data.model")
 
 const saltRounds = 10;
 
@@ -40,8 +41,7 @@ app.post("/register", async (req, res) => {
         });
 
         const savedUser = await newUser.save();
-
-        res.send({
+            res.send({
             success: true,
             message: "User is created successfully",
             user: {
@@ -107,7 +107,84 @@ app.get('/profile', passport.authenticate('jwt', { session: false }), (req, res)
             username: req.user.username,
         },
     });
-});
+}); 
+// POST route to save mess data
+app.post("/mess-data", 
+    passport.authenticate("jwt", { session: false }), 
+    async (req, res) => {
+      const {username, millCount, bazarCost } = req.body;
+
+      if (!millCount || !bazarCost) {
+        return res.status(400).json({ message: "All fields are required." });
+      }
+      try {
+        const newData = new Data({ 
+          username:username,
+          millcount: millCount,
+          bazarcost: bazarCost,
+        });
+        await newData.save();
+        return res.status(200).json({ message: "Data saved successfully!" });
+      } catch (err) {
+        console.error("Error saving mess data:", err);
+        return res.status(500).json({ message: "Failed to save data." });
+      }
+    }
+); 
+////balance check 
+app.get("/calculate-balances", passport.authenticate("jwt", { session: false }), async (req, res) => {
+    try {
+      // Aggregate total mill count and bazar cost
+      const totals = await Data.aggregate([
+        {
+          $group: {
+            _id: null,
+            totalMillCount: { $sum: "$millcount" },
+            totalBazarCost: { $sum: "$bazarcost" },
+          },
+        },
+      ]);
+      if (totals.length === 0) {
+        return res.status(200).json({ message: "No data available for calculation" });
+      }
+  
+      const { totalMillCount, totalBazarCost } = totals[0];
+      const millRate = totalBazarCost / totalMillCount;
+  
+      // Fetch user data and calculate balances
+      const usersData = await Data.aggregate([
+        {
+          $group: {
+            _id: "$userId",
+            totalMillCount: { $sum: "$millcount" },
+            totalBazarCost: { $sum: "$bazarcost" },
+          },
+        },
+      ]);
+  
+      const balances = usersData.map((user) => {
+        const contribution = user.totalMillCount * millRate;
+        const balance = contribution - user.totalBazarCost;
+  
+        return {
+          userId: user._id,
+          totalMillCount: user.totalMillCount,
+          totalBazarCost: user.totalBazarCost,
+          contribution: contribution.toFixed(2),
+          balance: balance.toFixed(2),
+          status: balance > 0 ? "Will receive" : "Needs to pay",
+        };
+      });
+  
+      return res.status(200).json({
+        millRate: millRate.toFixed(2),
+        balances,
+      });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
 
 // 404 handler
 app.use((req, res) => {

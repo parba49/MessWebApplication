@@ -4,7 +4,7 @@ import "./index.css"
 const Header = () => {
   return (
     <nav>
-        <Link to="/">Home</Link>  &nbsp;
+        <Link to="/">Message</Link>  &nbsp;
         <Link to="/Register">Register</Link> &nbsp;
         <Link to="/Login">Login</Link>  &nbsp; 
         <Link to="/Logout">Logout</Link>
