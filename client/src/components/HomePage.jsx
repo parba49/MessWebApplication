@@ -13,6 +13,7 @@ const HomePage = () => {
            </div>
            <div className='bg-orange-100 border-double border-4 border-indigo-600 ...'>
            <h1  className='text-xl font-medium text-black'><span className='text-3xl font-semibold text-amber-800'>T</span>his is destination for all your mess needs</h1>
+           <h1>hello</h1>
            </div>
           </div>
         </div>
