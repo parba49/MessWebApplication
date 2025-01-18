@@ -15,10 +15,15 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1 className="home-title">Important Message!!</h1>
+      <h1 className="home-title ">Important Message!!</h1>
       {message && <p className="home-message">{message}</p>} 
+
+
+     
       
     </div>
+
+
   );
 };
 

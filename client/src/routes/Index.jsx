@@ -6,11 +6,13 @@ import Register from "../components/Register";
 import Profile from "../components/Profile";
 import Error from "../components/Error"; 
 import Logout from "../components/Logout";
+import HomePage from "../components/HomePage";
 import Header from '../layout/Header';
 const Index = () => (
   <BrowserRouter> 
     <Header/>
     <Routes>
+      <Route path="/HomePage" element={<HomePage />} />
       <Route path="/" element={<Home />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/Register" element={<Register />} />
